@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>Search Page</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Predict Your Backorder</h1>
+
+    <div class="form">
+        <form action="/predict" method="POST">
+            <input type="number" name="sku" id="sku" placeholder="SKU">
+            <input type="number" name="national_inv" id="national_inv" placeholder="national_inv">
+            <input type="number" name="ulead_time" id="lead_time" placeholder="lead_time">
+            <input type="number" name="in_transit_qty" id="in_transit_qty" placeholder="in_transit_qty">
+            <input type="number" name="forecast_3_month" id="forecast_3_month" placeholder="forecast_3_month">
+            <input type="number" name="forecast_6_month" id="forecast_6_month" placeholder="forecast_6_month">
+            <input type="number" name="forecast_9_month" id="forecast_9_month" placeholder="forecast_9_month">
+            <input type="number" name="sales_1_month" id="sales_1_month" placeholder="1st month sales">
+            <input type="number" name="sales_3_month" id="sales_3_month" placeholder="3rd month sales">
+            <input type="number" name="sales_6_month" id="sales_6_month" placeholder="6th month sales">
+            <input type="number" name="sales_9_month" id="sales_9_month" placeholder="9th month sales">
+            <input type="number" name="min_bank" id="min_bank" placeholder="min_bank">
+            <input type="number" name="pieces_past_due" id="pieces_past_due" placeholder="pieces_past_due">
+            <input type="number" name="perf_6_month_avg" id="perf_6_month_avg" placeholder="perf_6_month_avg">
+            <input type="number" name="perf_12_month_avg" id="" placeholder="perf_12_month_avg">
+            <input type="number" name="local_bo_qty" id="local_bo_qty" placeholder="local_bo_qty">
+
+            <select name="potential_issue" id="potential_issue">
+  <option value="Yes">Yes</option>
+  <option value="No">No</option>
+</select>
+            <select name="deck_risk" id="deck_risk">
+  <option value="Yes">Yes</option>
+  <option value="No">No</option>
+</select>
+            <select name="oe_constraint" id="oe_constraint">
+  <option value="Yes">Yes</option>
+  <option value="No">No</option>
+</select>
+            <select name="ppap_risk" id="ppap_risk">
+  <option value="Yes">Yes</option>
+  <option value="No">No</option>
+</select>
+            <select name="stop_auto_buy" id="stop_auto_buy">
+  <option value="Yes">Yes</option>
+  <option value="No">No</option>
+</select>
+            <select name="rev_stop" id="rev_stop">
+  <option value="Yes">Yes</option>
+  <option value="No">No</option>
+</select>
+            <select name="went_on_backorder" id="went_on_backorder">
+  <option value="Yes">Yes</option>
+  <option value="No">No</option>
+</select>
+        
+            <input type="submit" value="Predict">
+        </form>
+    </div>
+</div>
+{% endblock %}
